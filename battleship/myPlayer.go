@@ -33,12 +33,12 @@ func myMove(CPUBoard [][]string, visual [][]string) {
 		fmt.Println("Pick a coordinate")
 		fmt.Scanf("%s", &guess)
 		x, y := parseCoordinate(guess)
-		if CPUBoard[x][y] == "x" || CPUBoard[x][y] == "H" {
+		if CPUBoard[x][y] == "❌" || CPUBoard[x][y] == "🔥" {
 			fmt.Println("Coordinate already struck")
-		} else if CPUBoard[x][y] == "B" {
+		} else if CPUBoard[x][y] == "🛥️" {
 			println("Hit!")
-			CPUBoard[x][y] = "H"
-			visual[x][y] = "H"
+			CPUBoard[x][y] = "🔥"
+			visual[x][y] = "🔥"
 			CPUHealth -= 1
 			s := CPUCoords[getIndex(x, y)]
 			CPUHealthMap[s] -= 1
@@ -48,8 +48,8 @@ func myMove(CPUBoard [][]string, visual [][]string) {
 			break
 		} else {
 			println("Miss!")
-			CPUBoard[x][y] = "x"
-			visual[x][y] = "x"
+			CPUBoard[x][y] = "❌"
+			visual[x][y] = "❌"
 			break
 		}
 	}
@@ -84,7 +84,7 @@ func fillMySpots(board [][]string, sx, sy, fx, fy, size int, boat string) {
 	if sx == fx {
 		y := min(sy, fy)
 		for i := 0; i < size; i++ {
-			board[sx][y+i] = "B"
+			board[sx][y+i] = "🛥️"
 			index := getIndex(sx, y+1)
 			myCoords[index] = boat
 		}
@@ -92,7 +92,7 @@ func fillMySpots(board [][]string, sx, sy, fx, fy, size int, boat string) {
 	} else {
 		x := min(sx, fx)
 		for i := 0; i < size; i++ {
-			board[x+i][sy] = "B"
+			board[x+i][sy] = "🛥️"
 			index := getIndex(x+i, sy)
 			myCoords[index] = boat
 		}

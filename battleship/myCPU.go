@@ -48,11 +48,11 @@ func CPUMove(myBoard [][]string) {
 		if isInvalid(x, y, 0, 0) {
 
 		} else {
-			if myBoard[x][y] == "x" || myBoard[x][y] == "H" {
+			if myBoard[x][y] == "❌" || myBoard[x][y] == "🔥" {
 
 			} else if myBoard[x][y] == "B" {
 				println("Hit!")
-				myBoard[x][y] = "H"
+				myBoard[x][y] = "🔥"
 				myHealth -= 1
 				if flip {
 					if point.direction == "vertical" {
@@ -82,7 +82,7 @@ func CPUMove(myBoard [][]string) {
 				break
 			} else {
 				println("Miss!")
-				myBoard[x][y] = "x"
+				myBoard[x][y] = "❌"
 				break
 			}
 		}
@@ -128,7 +128,7 @@ func fillCPUSpots(board [][]string, sx, sy, fx, fy, size int, boat string) {
 	if sx == fx {
 		y := min(sy, fy)
 		for i := 0; i < size; i++ {
-			board[sx][y+i] = "B"
+			board[sx][y+i] = "🛥️"
 			index := getIndex(sx, y+i)
 			CPUCoords[index] = boat
 		}
@@ -136,7 +136,7 @@ func fillCPUSpots(board [][]string, sx, sy, fx, fy, size int, boat string) {
 	} else {
 		x := min(sx, fx)
 		for i := 0; i < size; i++ {
-			board[x+i][sy] = "B"
+			board[x+i][sy] = "🛥️"
 			index := getIndex(x+i, sy)
 			CPUCoords[index] = boat
 		}
