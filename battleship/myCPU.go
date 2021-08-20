@@ -50,7 +50,7 @@ func CPUMove(myBoard [][]string) {
 		} else {
 			if myBoard[x][y] == "❌" || myBoard[x][y] == "🔥" {
 
-			} else if myBoard[x][y] == "B" {
+			} else if myBoard[x][y] == "🛥️ " {
 				println("Hit!")
 				myBoard[x][y] = "🔥"
 				myHealth -= 1
@@ -128,7 +128,7 @@ func fillCPUSpots(board [][]string, sx, sy, fx, fy, size int, boat string) {
 	if sx == fx {
 		y := min(sy, fy)
 		for i := 0; i < size; i++ {
-			board[sx][y+i] = "🛥️"
+			board[sx][y+i] = "🛥️ "
 			index := getIndex(sx, y+i)
 			CPUCoords[index] = boat
 		}
@@ -136,7 +136,7 @@ func fillCPUSpots(board [][]string, sx, sy, fx, fy, size int, boat string) {
 	} else {
 		x := min(sx, fx)
 		for i := 0; i < size; i++ {
-			board[x+i][sy] = "🛥️"
+			board[x+i][sy] = "🛥️ "
 			index := getIndex(x+i, sy)
 			CPUCoords[index] = boat
 		}

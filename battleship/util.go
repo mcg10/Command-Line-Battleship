@@ -6,7 +6,7 @@ import (
 )
 
 func printBoard(board [][]string) {
-	letters := [10]string{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"}
+	letters := [10]string{"A ", "B ", "C ", "D ", "E ", "F ", "G ", "H ", "I ", "J "}
 	for i := 1; i < 11; i++ {
 		fmt.Println()
 		x := i
@@ -30,7 +30,8 @@ func printBoard(board [][]string) {
 func template() [][]string {
 	board := [][]string{}
 	for i := 0; i < 10; i++ {
-		row := []string{"0", "0", "0", "0", "0", "0", "0", "0", "0", "0"}
+		row := []string{"🌊", "🌊", "🌊", "🌊", "🌊", "🌊", "🌊", "🌊", "🌊", "🌊"}
+		//row := []string{"0", "0", "0", "0", "0", "0", "0", "0", "0", "0"}
 		board = append(board, row)
 	}
 	return board
@@ -55,7 +56,7 @@ func isTaken(board [][]string, sx, sy, fx, fy, size int) bool {
 			y = fy
 		}
 		for i := 0; i < size; i++ {
-			if board[sx][y+i] != "0" {
+			if board[sx][y+i] != "🌊" {
 				return true
 			}
 		}
@@ -68,7 +69,7 @@ func isTaken(board [][]string, sx, sy, fx, fy, size int) bool {
 			x = fx
 		}
 		for i := 0; i < size; i++ {
-			if board[x+i][sy] != "0" {
+			if board[x+i][sy] != "🌊" {
 				return true
 			}
 		}
