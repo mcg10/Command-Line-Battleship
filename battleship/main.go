@@ -11,7 +11,6 @@ func main() {
 	printBoard(myBoard)
 	println("Enemy building board...")
 	CPUBoard := buildCPUBoard()
-	printBoard(CPUBoard)
 	playGame(myBoard, CPUBoard)
 }
 
